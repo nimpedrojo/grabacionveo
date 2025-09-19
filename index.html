@@ -158,7 +158,7 @@
       e.preventDefault();
       const data = Object.fromEntries(new FormData(this).entries());
       
-      await fetch("AQUI_TU_URL_DEL_WEB_APP", {
+      await fetch("https://script.google.com/macros/s/AKfycbzfyo24AZKfvz4NQPwv0JoZAE9zHoQeKVuT0brm3Vn4CoUcuTXE-uOfAgLRwfOEERF9Cw/exec", {
         method: "POST",
         body: JSON.stringify(data)
       });
