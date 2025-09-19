@@ -62,7 +62,7 @@
     }
 
     /* === CAMPOS DEL FORMULARIO === */
-    input, textarea {
+    input, textarea, select {
       padding: 12px;
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -71,7 +71,7 @@
       transition: 0.2s;
     }
 
-    input:focus, textarea:focus {
+    input:focus, textarea:focus, select:focus {
       border-color: #0077b6;
       background: #fff;
       outline: none;
@@ -129,10 +129,23 @@
     <form id="miFormulario">
   <input type="date" name="fecha" placeholder="Fecha" required>
   <input type="time" name="hora" placeholder="Hora" required>
-  <input type="text" name="campo" placeholder="Campo" required>
+  <select name="campo" required>
+        <option value="">Selecciona el campo</option>
+        <option value="Futbol 11">Futbol 11</option>
+        <option value="Ochoa">Campo Ochoa</option>
+      </select>
   <input type="text" name="local" placeholder="Equipo Local" required>
   <input type="text" name="visitante" placeholder="Equipo Visitante" required>
-  <input type="text" name="categoria" placeholder="Categoria" required>
+  <select name="categoria" required>
+        <option value="">Selecciona la categoría</option>
+        <option value="prebenjamin">Prebenjamín</option>
+        <option value="benjamin">Benjamín</option>
+        <option value="alevin">Alevín</option>
+        <option value="infantil">Infantil</option>
+        <option value="cadete">Cadete</option>
+        <option value="juvenil">Juvenil</option>
+        <option value="femenino">Femenino</option>
+      </select>
   <input type="hidden" name="prioridad" >
   <input type="hidden" name="grabacion" >
   <textarea name="comentarios" placeholder="Comentario"></textarea>
