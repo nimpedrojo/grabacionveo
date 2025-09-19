@@ -190,7 +190,7 @@ button:disabled {
       </select>
   <input type="hidden" name="prioridad" >
   <input type="hidden" name="grabacion" >
-  <textarea name="comentarios" placeholder="Comentario"></textarea>
+  <textarea name="comentarios" placeholder="Solicitanto"></textarea>
   <button type="submit" id="btnEnviar">
     <span id="btnTexto">Enviar solicitud</span>
     <span id="spinner" style="display:none;" class="spinner"></span>
@@ -222,7 +222,7 @@ button:disabled {
         });
 
         const rows = await response.json(); // Recibe las filas
-        mostrarListado(rows); // Pinta el listado en pantalla
+       // mostrarListado(rows); // Pinta el listado en pantalla
 
         this.reset();
     } catch (error) {
