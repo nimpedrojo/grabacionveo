@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de solicitud de grabación</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     /* === RESET === */
     * {
@@ -155,6 +156,16 @@ button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  color: #555;
+}
   </style>
 </head>
 <body>
@@ -169,13 +180,24 @@ button:disabled {
   <!-- FORMULARIO -->
   <div class="form-container">
     <form id="miFormulario">
-  <input type="date" name="fecha" placeholder="Fecha" required>
-  <input type="time" name="hora" placeholder="Hora" required>
-  <select name="campo" required>
-        <option value="">Selecciona el campo</option>
-        <option value="Futbol 11">Futbol 11</option>
-        <option value="Ochoa">Campo Ochoa</option>
-      </select>
+    <div class="campo">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required>
+    </div>
+  <div class="campo">
+    <label for="hora">Hora</label>
+    <input type="time" id="hora" name="hora" required>
+  </div>
+  <div class="campo">
+    <label for="campo">Campo</label>
+    <select id="campo" name="campo" required>
+            <option value="">Selecciona el campo</option>
+            <option value="Futbol 11">Futbol 11</option>
+            <option value="Ochoa">Campo Ochoa</option>
+        </select>
+  </div>
+  <div class="campo">
+  <label for="categoria">Categoria</label>
       <select id="categoria" name="categoria" required>
         <option value="">Selecciona la categoría</option>
         <option value="prebenjamin">Prebenjamín</option>
@@ -186,14 +208,25 @@ button:disabled {
         <option value="juvenil">Juvenil</option>
         <option value="femenino">Femenino</option>
       </select>
+    </div>
+    <div class="campo">
+    <label for="local">Local</label>    
   <select name="local" id="local" required disabled>
     <option value="">Selecciona el equipo local</option>
     </select>
-  <input type="text" name="visitante" placeholder="Equipo Visitante" required>
+    </div>
+    <div class="campo">
+  <label for="visitante">Visitante</label>
+  <input type="text" id="visitante" name="visitante" placeholder="Equipo Visitante" required>
+</div>
+ 
   
   <input type="hidden" name="prioridad" >
   <input type="hidden" name="grabacion" >
-  <textarea name="comentarios" placeholder="Solicitante"></textarea>
+  <div class="campo">
+  <label for="comentarios">Solicitante</label>
+  <input type="text" id="comentarios" name="comentarios" placeholder="Solicitante" required>
+</div>
   <button type="submit" id="btnEnviar">
     <span id="btnTexto">Enviar solicitud</span>
     <span id="spinner" style="display:none;" class="spinner"></span>
