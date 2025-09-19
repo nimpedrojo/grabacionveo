@@ -190,7 +190,7 @@ button:disabled {
       </select>
   <input type="hidden" name="prioridad" >
   <input type="hidden" name="grabacion" >
-  <textarea name="comentarios" placeholder="Comentario"></textarea>
+  <textarea name="comentarios" placeholder="Solicitante"></textarea>
   <button type="submit" id="btnEnviar">
     <span id="btnTexto">Enviar solicitud</span>
     <span id="spinner" style="display:none;" class="spinner"></span>
@@ -221,8 +221,7 @@ button:disabled {
         mode: 'no-cors'
         });
 
-        const rows = await response.json(); // Recibe las filas
-        mostrarListado(rows); // Pinta el listado en pantalla
+       alert("Solicitud enviada con éxito. Nos pondremos en contacto contigo pronto.");
 
         this.reset();
     } catch (error) {
@@ -240,32 +239,7 @@ button:disabled {
     
   });
 
-  function mostrarListado(rows) {
-    const contenedor = document.getElementById("listado");
-    if (!rows.length) {
-      contenedor.innerHTML = "<p>No hay registros todavía.</p>";
-      return;
-    }
-
-    let html = "<table style='width: 100%; border-collapse: collapse; margin-top: 10px;'>";
-    html += "<thead><tr><th>Fecha</th><th>Hora</th><th>Campo</th><th>Local</th><th>Visitante</th><th>Categoria</th></tr></thead>";
-    html += "<tbody>";
-
-    rows.forEach(row => {
-      html += `<tr>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.fecha}</td>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.hora}</td>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.campo}</td>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.local}</td>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.visitante}</td>
-        <td style="border: 1px solid #ddd; padding: 6px;">${row.categoria}</td>
-      </tr>`;
-    });
-
-    html += "</tbody></table>";
-    contenedor.innerHTML = html;
-  }
-</script>
+ </script>
   
 
 </body>
