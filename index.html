@@ -176,9 +176,7 @@ button:disabled {
         <option value="Futbol 11">Futbol 11</option>
         <option value="Ochoa">Campo Ochoa</option>
       </select>
-  <input type="text" name="local" placeholder="Equipo Local" required>
-  <input type="text" name="visitante" placeholder="Equipo Visitante" required>
-  <select name="categoria" required>
+      <select id="categoria" name="categoria" required>
         <option value="">Selecciona la categoría</option>
         <option value="prebenjamin">Prebenjamín</option>
         <option value="benjamin">Benjamín</option>
@@ -188,6 +186,11 @@ button:disabled {
         <option value="juvenil">Juvenil</option>
         <option value="femenino">Femenino</option>
       </select>
+  <select name="local" id="local" required disabled>
+    <option value="">Selecciona el equipo local</option>
+    </select>
+  <input type="text" name="visitante" placeholder="Equipo Visitante" required>
+  
   <input type="hidden" name="prioridad" >
   <input type="hidden" name="grabacion" >
   <textarea name="comentarios" placeholder="Solicitante"></textarea>
@@ -201,7 +204,45 @@ button:disabled {
 <div id="listado" style="margin-top: 20px;"></div>
 
 <script>
-    const form = document.getElementById('miFormulario');
+ // Definimos los equipos según la categoría
+  const equiposPorCategoria = {
+    prebenjamin: ["Prebenjamín A", "Prebenjamín B"],
+    benjamin: ["Benjamín preferente", "1 Benjamín", "2 Benjamín"],
+    alevin: ["Alevín preferente", "2 Alevín A","2 Alevín B"],
+    infantil: ["Primera Infantil", "3 Infantil A","3 Infantil B"],
+    cadete:  ["Primera Cadete", "3 Cadete A","3 Cadete B"],
+    juvenil: ["Juvenil preferente", "1 Juvenil"],
+    femenino: ["Juvenil femenino", "Infantil/Alevin femenino","Alevin/Benjamín femenino"]
+  };
+
+  const categoriaSelect = document.getElementById("categoria");
+  const equipoLocalSelect = document.getElementById("local");
+
+  categoriaSelect.addEventListener("change", () => {
+    const categoria = categoriaSelect.value;
+
+    // Limpiamos opciones anteriores
+    equipoLocalSelect.innerHTML = '<option value="">Selecciona el equipo local</option>';
+
+    if (!categoria || !equiposPorCategoria[categoria]) {
+      equipoLocalSelect.disabled = true;
+      return;
+    }
+
+    // Rellenamos el desplegable con los equipos de esa categoría
+    equiposPorCategoria[categoria].forEach(eq => {
+      const opt = document.createElement("option");
+      opt.value = eq;
+      opt.textContent = eq;
+      equipoLocalSelect.appendChild(opt);
+    });
+
+    equipoLocalSelect.disabled = false;
+  });
+
+
+
+  const form = document.getElementById('miFormulario');
   const btn = document.getElementById('btnEnviar');
   const btnTexto = document.getElementById('btnTexto');
   const spinner = document.getElementById('spinner');
