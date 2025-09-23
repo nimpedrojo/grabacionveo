@@ -49,5 +49,33 @@
     </div>
   </div>
 
+  <script>
+    // Google Analytics: detectar clics en las opciones principales
+    document.addEventListener('DOMContentLoaded', function() {
+      var grabacionCard = document.querySelector('.card[onclick*="grabacion.html"]');
+      var scoutingCard = document.querySelector('.card[onclick*="scouting.html"]');
+      if (grabacionCard) {
+        grabacionCard.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_opcion', {
+              'event_category': 'Formulario',
+              'event_label': 'Solicitud de Grabación'
+            });
+          }
+        });
+      }
+      if (scoutingCard) {
+        scoutingCard.addEventListener('click', function() {
+          if (typeof gtag === 'function') {
+            gtag('event', 'click_opcion', {
+              'event_category': 'Formulario',
+              'event_label': 'Scouting'
+            });
+          }
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
