@@ -5,186 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de solicitud de grabación</title>
+    <!-- Descripción para SEO -->
+    <meta name="description" content="Formulario para solicitar la grabación de partidos o entrenamientos de fútbol.">
+    <meta name="author" content="Pedro Lafuente">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        /* === RESET === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-  .icono {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-        body {
-            background: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* === ENCABEZADO === */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        header img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #333;
-            text-align: center;
-        }
-
-        /* === CONTENEDOR DEL FORMULARIO === */
-        .form-container {
-            background: white;
-            padding: 30px 25px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            max-width: 400px;
-            width: 100%;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* === CAMPOS DEL FORMULARIO === */
-        input,
-        textarea,
-        select {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: #fafafa;
-            transition: 0.2s;
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #0077b6;
-            background: #fff;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
-        }
-
-        textarea {
-            resize: none;
-            min-height: 100px;
-        }
-
-        /* === BOTÓN === */
-        button {
-            background: #0077b6;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background: #005f8a;
-        }
-
-        /* === RESPONSIVE === */
-        @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            header img {
-                width: 50px;
-                height: 50px;
-            }
-
-            header h1 {
-                font-size: 1.4rem;
-            }
-        }
-
-        #listado table {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        #listado th {
-            background: #0077b6;
-            color: white;
-            text-align: left;
-            padding: 8px;
-        }
-
-        #listado td {
-            background: #fafafa;
-        }
-
-        #listado tr:nth-child(even) td {
-            background: #f0f0f0;
-        }
-
-        /* Spinner simple dentro del botón */
-        .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.4);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            margin-left: 8px;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .campo {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .campo label {
-            font-size: 0.9rem;
-            color: #555;
-        }
-    </style>
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta property="og:title" content="Formulario de solicitud de grabación">
+    <meta property="og:description" content="Solicita la grabación de partidos o entrenamientos de fútbol.">
+    <meta property="og:image" content="escudo.jpg">
+    <meta property="og:type" content="website">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
@@ -198,6 +31,8 @@
     <!-- FORMULARIO -->
     <div class="form-container">
         <form id="miFormulario">
+            <input type="hidden" name="prioridad">
+            <input type="hidden" name="grabacion">
             <div class="campo">
                 <label for="fecha">Fecha</label>
                 <input type="date" id="fecha" name="fecha" required>
@@ -237,10 +72,6 @@
                 <label for="visitante">Visitante</label>
                 <input type="text" id="visitante" name="visitante" placeholder="Equipo Visitante" required>
             </div>
-
-
-            <input type="hidden" name="prioridad">
-            <input type="hidden" name="grabacion">
             <div class="campo">
                 <label for="comentarios">Solicitante</label>
                 <input type="text" id="comentarios" name="comentarios" placeholder="Solicitante" required>
@@ -251,87 +82,7 @@
             </button>
         </form>
     </div>
-
-    <div id="listado" style="margin-top: 20px;"></div>
-
-    <script>
-        // Definimos los equipos según la categoría
-        const equiposPorCategoria = {
-            prebenjamin: ["Prebenjamín A", "Prebenjamín B"],
-            benjamin: ["Benjamín preferente", "1 Benjamín", "2 Benjamín"],
-            alevin: ["Alevín preferente", "2 Alevín A", "2 Alevín B"],
-            infantil: ["Primera Infantil", "3 Infantil A", "3 Infantil B"],
-            cadete: ["Primera Cadete", "3 Cadete A", "3 Cadete B"],
-            juvenil: ["Juvenil preferente", "1 Juvenil"],
-            femenino: ["Juvenil femenino", "Infantil/Alevin femenino", "Alevin/Benjamín femenino"]
-        };
-
-        const categoriaSelect = document.getElementById("categoria");
-        const equipoLocalSelect = document.getElementById("local");
-
-        categoriaSelect.addEventListener("change", () => {
-            const categoria = categoriaSelect.value;
-
-            // Limpiamos opciones anteriores
-            equipoLocalSelect.innerHTML = '<option value="">Selecciona el equipo local</option>';
-
-            if (!categoria || !equiposPorCategoria[categoria]) {
-                equipoLocalSelect.disabled = true;
-                return;
-            }
-
-            // Rellenamos el desplegable con los equipos de esa categoría
-            equiposPorCategoria[categoria].forEach(eq => {
-                const opt = document.createElement("option");
-                opt.value = eq;
-                opt.textContent = eq;
-                equipoLocalSelect.appendChild(opt);
-            });
-
-            equipoLocalSelect.disabled = false;
-        });
-
-
-
-        const form = document.getElementById('miFormulario');
-        const btn = document.getElementById('btnEnviar');
-        const btnTexto = document.getElementById('btnTexto');
-        const spinner = document.getElementById('spinner');
-
-        form.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            // Bloquear UI
-            btn.disabled = true;
-            btnTexto.textContent = "Enviando...";
-            spinner.style.display = "inline-block";
-            try {
-                const data = Object.fromEntries(new FormData(this).entries());
-
-                const response = await fetch("https://script.google.com/macros/s/AKfycbzfyo24AZKfvz4NQPwv0JoZAE9zHoQeKVuT0brm3Vn4CoUcuTXE-uOfAgLRwfOEERF9Cw/exec", {
-                    method: "POST",
-                    body: JSON.stringify(data),
-                    mode: 'no-cors'
-                });
-
-                alert("Solicitud enviada con éxito. Nos pondremos en contacto contigo pronto.");
-
-                this.reset();
-            } catch (error) {
-                alert("Ocurrió un error al enviar la información. Intenta de nuevo.");
-                console.error(error);
-            } finally {
-                // Desbloquear UI
-                btn.disabled = false;
-                btnTexto.textContent = "Enviar solicitud";
-                spinner.style.display = "none";
-            }
-
-
-
-
-        });
-
-    </script>
+    <script src="js/formulario.js"></script>
 
 
 </body>

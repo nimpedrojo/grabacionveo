@@ -4,100 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área de Formularios</title>
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: #f4f6f8;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    /* HEADER */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    header img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #333;
-      text-align: center;
-    }
-
-    /* GRID DE OPCIONES */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      max-width: 700px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      padding: 30px 20px;
-      text-align: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-    }
-
-    .icono {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #0077b6;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      header img {
-        width: 50px;
-        height: 50px;
-      }
-      header h1 {
-        font-size: 1.4rem;
-      }
-    }
-  </style>
+  <!-- Descripción para SEO -->
+  <meta name="description" content="Área de formularios para solicitar grabación y scouting de partidos de fútbol.">
+  <meta name="author" content="Pedro Lafuente">
+  <meta name="robots" content="index, follow">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="Área de Formularios">
+  <meta property="og:description" content="Solicita grabación y scouting de partidos de fútbol.">
+  <meta property="og:image" content="escudo.jpg">
+  <meta property="og:type" content="website">
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
